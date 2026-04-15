@@ -1,0 +1,42 @@
+.scroll-to-top-fab {
+  position: fixed;
+  z-index: 90;
+  right: max(1rem, env(safe-area-inset-right, 0px));
+  bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.scroll-to-top-fab:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+}
+
+.scroll-to-top-fab:focus-visible {
+  outline: 2px solid var(--accent, #0b5fff);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-to-top-fab {
+    transition: none;
+  }
+}
+
+.scroll-to-top-fab__icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}

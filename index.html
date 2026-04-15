@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="pwc">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Lightning A11y Lab</title>
+    <link rel="icon" href="%BASE_URL%logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        try {
+          var k = "lightning-a11y-lab-theme";
+          var t = localStorage.getItem(k);
+          var ok = ["pwc", "red-sunburst", "spectrum", "harbor", "inferno", "forge", "clicko"];
+          if (t && ok.indexOf(t) !== -1) document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

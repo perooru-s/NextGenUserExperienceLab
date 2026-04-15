@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lightning A11y Lab — Team overview (print to PDF)</title>
+    <style>
+      :root {
+        --ink: #0f172a;
+        --muted: #475569;
+        --accent: #0369a1;
+        --rule: #e2e8f0;
+        --bg: #ffffff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 2.5rem 2rem 3rem;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-size: 11.5pt;
+        line-height: 1.55;
+        color: var(--ink);
+        background: var(--bg);
+        max-width: 720px;
+        margin-inline: auto;
+      }
+      h1 {
+        font-size: 1.65rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin: 0 0 0.35rem;
+        color: var(--ink);
+      }
+      .subtitle {
+        font-size: 0.95rem;
+        color: var(--muted);
+        margin: 0 0 1.75rem;
+      }
+      h2 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--accent);
+        margin: 1.6rem 0 0.5rem;
+        padding-bottom: 0.2rem;
+        border-bottom: 2px solid var(--rule);
+      }
+      p {
+        margin: 0 0 0.75rem;
+      }
+      ul {
+        margin: 0 0 0.75rem;
+        padding-left: 1.25rem;
+      }
+      li {
+        margin-bottom: 0.35rem;
+      }
+      .callout {
+        margin-top: 1.25rem;
+        padding: 0.85rem 1rem;
+        background: #f0f9ff;
+        border-left: 4px solid var(--accent);
+        border-radius: 0 6px 6px 0;
+        font-size: 0.98rem;
+      }
+      .footer-note {
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--rule);
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+      @media print {
+        body {
+          padding: 1.2cm 1.4cm;
+          max-width: none;
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
+        }
+        h2 {
+          break-after: avoid;
+        }
+        p,
+        li {
+          orphans: 3;
+          widows: 3;
+        }
+        .callout {
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lightning A11y Lab</h1>
+    <p class="subtitle">One-page team overview · April 2026</p>
+
+    <h2>What is this tool?</h2>
+    <p>
+      <strong>Lightning A11y Lab</strong> is a web-based accessibility lab for teams building on Salesforce Lightning. You paste
+      Lightning Web Component (LWC), Aura, or mixed markup into the review console, choose a WCAG conformance target (A, AA, or AAA)
+      and version (2.1 or 2.2), and run a static analysis in the browser. You get structured findings with severity, context, and
+      remediation hints—without sending your source code to a backend by default.
+    </p>
+    <p>
+      The app also includes curated accessibility resources, theme options for comfortable reading, and exports (JSON, Word, PDF)
+      so results can attach to tickets, release notes, or governance packs.
+    </p>
+
+    <h2>Tools we used</h2>
+    <ul>
+      <li><strong>React</strong> and <strong>TypeScript</strong> for the user interface and type-safe application code.</li>
+      <li><strong>Vite</strong> for fast local development and optimized production builds.</li>
+      <li><strong>React Router</strong> for navigation between marketing home, review console, and resources.</li>
+      <li><strong>jsPDF</strong> for client-side PDF export of review reports.</li>
+      <li><strong>docx</strong> for client-side Microsoft Word export.</li>
+      <li>A <strong>browser-based static engine</strong> that analyzes markup against WCAG-oriented rules, contrast heuristics where
+        parseable, and Lightning / SLDS-friendly patterns.</li>
+    </ul>
+
+    <h2>Importance of this tool</h2>
+    <p>
+      Digital accessibility affects a large share of the population and intersects with legal expectations, brand trust, and
+      inclusive design. Fixing issues late—after UAT or in production—is far more expensive than catching them early in markup and
+      component structure.
+    </p>
+    <p>
+      Lightning A11y Lab gives teams a <strong>repeatable first pass</strong> aligned with WCAG thinking, tuned to the kinds of
+      mistakes that show up in Lightning codebases. It does not replace manual testing with assistive technologies or live contrast
+      checks in the running app, but it <strong>raises the floor</strong> before formal sign-off.
+    </p>
+
+    <h2>What using this tool helps with</h2>
+    <ul>
+      <li><strong>Faster feedback:</strong> Immediate findings in the console instead of waiting for a specialist slot or a long audit cycle.</li>
+      <li><strong>Clearer handoffs:</strong> Structured output and exports that map cleanly to Jira, Azure DevOps, or email.</li>
+      <li><strong>Consistent standards language:</strong> WCAG targets and versions are explicit in each run, reducing ambiguity in reviews.</li>
+      <li><strong>Privacy-friendly default:</strong> Analysis runs locally in the browser, which matters for pre-release or client-sensitive markup.</li>
+      <li><strong>Learning on the job:</strong> Developers see <em>why</em> something matters alongside <em>what</em> to change.</li>
+    </ul>
+
+    <h2>Team members save hours</h2>
+    <p>
+      Manual WCAG walkthroughs and spreadsheet checklists are valuable but slow. This tool automates the <strong>mechanical screening</strong>
+      pass: scanning large snippets, flagging common failures, and grouping results so people spend time on judgment and fixes—not on
+      re-reading the same patterns line by line.
+    </p>
+    <div class="callout">
+      <strong>Practical time savings:</strong> fewer round-trips between dev and QA, less rework after accessibility review, and quicker
+      preparation of evidence for release governance. Teams that run the lab before code review or UAT typically catch issues when
+      edits are still cheap—often saving <strong>hours per story</strong> and avoiding costly late-stage escalations.
+    </div>
+
+    <p class="footer-note">
+      <strong>To create the PDF:</strong> Open this file in Chrome, Edge, or Safari → Print → choose “Save as PDF” (or “Microsoft Print to PDF”).
+      Use A4 or Letter, margins “Default,” and enable “Background graphics” if you want the callout tint to appear in the PDF.
+    </p>
+  </body>
+</html>

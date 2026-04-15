@@ -1,0 +1,27 @@
+{
+  "name": "lightning-a11y-lab",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build && node scripts/copy-404.mjs",
+    "preview": "vite preview",
+    "ppt:overview": "node scripts/generate-overview-deck.mjs"
+  },
+  "dependencies": {
+    "docx": "^9.6.1",
+    "jspdf": "^4.2.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.14.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "pptxgenjs": "^4.0.1",
+    "typescript": "~5.6.2",
+    "vite": "^5.4.10"
+  }
+}

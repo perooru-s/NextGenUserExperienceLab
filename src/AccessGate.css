@@ -1,0 +1,104 @@
+.access-gate {
+  min-height: 100%;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  padding-left: max(1.5rem, env(safe-area-inset-left, 0px));
+  padding-right: max(1.5rem, env(safe-area-inset-right, 0px));
+  padding-bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
+  padding-top: max(1.5rem, env(safe-area-inset-top, 0px));
+  background: var(--shell-bg, #f5f5f5);
+  color: var(--text, #111);
+  font-family: var(--font, system-ui, sans-serif);
+}
+
+.access-gate-card {
+  width: 100%;
+  max-width: 22rem;
+  padding: 1.5rem 1.35rem;
+  border-radius: var(--radius-lg, 14px);
+  border: 1px solid var(--border, #e5e5e5);
+  background: var(--bg-elevated, #fff);
+  box-shadow: var(--shadow-card, 0 4px 24px rgba(0, 0, 0, 0.06));
+}
+
+.access-gate-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.access-gate-lead {
+  margin: 0 0 1.1rem;
+  font-size: 0.875rem;
+  color: var(--text-muted, #666);
+  line-height: 1.45;
+}
+
+.access-gate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.access-gate-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text, #111);
+}
+
+.access-gate-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.55rem 0.65rem;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  border: 1px solid var(--border, #ddd);
+  border-radius: var(--radius, 10px);
+  background: var(--bg-input, #fff);
+  color: var(--text, #111);
+}
+
+.access-gate-input:focus {
+  outline: 2px solid color-mix(in srgb, var(--accent, #ce4257) 45%, transparent);
+  outline-offset: 1px;
+}
+
+.access-gate-error {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--chip-critical-fg, #7f1d1d);
+}
+
+.access-gate-submit {
+  margin-top: 0.35rem;
+  padding: 0.55rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--btn-on-accent, #fff);
+  background: var(--accent, #ce4257);
+  border: none;
+  border-radius: var(--radius, 10px);
+  cursor: pointer;
+}
+
+.access-gate-submit:hover {
+  background: var(--accent-hover, #720026);
+}
+
+.access-gate-submit:focus-visible {
+  outline: 2px solid var(--accent, #ce4257);
+  outline-offset: 2px;
+}
+
+.access-gate-note {
+  margin: 1.1rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border, #eee);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  color: var(--text-muted, #888);
+}

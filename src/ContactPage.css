@@ -1,0 +1,316 @@
+.cp {
+  min-height: 100%;
+  min-height: 100dvh;
+  background: var(--shell-bg);
+  color: var(--text);
+  font-family: var(--font, system-ui, sans-serif);
+}
+
+.cp-main {
+  padding-top: calc(4.25rem + env(safe-area-inset-top, 0px));
+  padding-bottom: max(2rem, env(safe-area-inset-bottom, 0px));
+}
+
+@media (max-width: 900px) {
+  .cp-main {
+    padding-top: calc(7.5rem + env(safe-area-inset-top, 0px));
+  }
+}
+
+.cp-banner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 2rem;
+  min-height: clamp(14.5rem, 34vw, 20rem);
+  display: flex;
+  align-items: center;
+  padding: clamp(2.35rem, 5vw, 3.65rem) max(1.25rem, env(safe-area-inset-left, 0px)) clamp(2.65rem, 5.5vw, 3.85rem)
+    max(1.25rem, env(safe-area-inset-right, 0px));
+  background: var(--palette-burgundy, #4a1020);
+  color: #fff;
+  border-bottom: 1px solid color-mix(in srgb, #fff 12%, transparent);
+}
+
+.cp-banner-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 52% 44%;
+  pointer-events: none;
+}
+
+.cp-banner-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    color-mix(in srgb, var(--palette-burgundy, #2a0a14) 92%, transparent) 0%,
+    color-mix(in srgb, var(--palette-burgundy, #2a0a14) 72%, transparent) 34%,
+    color-mix(in srgb, var(--palette-wine, #4a1528) 48%, transparent) 54%,
+    color-mix(in srgb, #000 20%, transparent) 74%,
+    transparent 100%
+  );
+}
+
+.cp-banner-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--marketing-content-max);
+  margin: 0 auto;
+  width: 100%;
+  animation: cp-banner-content-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  text-shadow: 0 1px 2px color-mix(in srgb, #000 22%, transparent);
+}
+
+/* Matches `.arp-masthead-breadcrumb` — on photo banner for contrast */
+.cp-masthead-breadcrumb {
+  font-size: 0.8125rem;
+  margin: 0 0 1.35rem;
+  opacity: 0.88;
+}
+
+.cp-masthead-breadcrumb a {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cp-masthead-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.cp-masthead-breadcrumb-current {
+  font-weight: 700;
+  color: #fff;
+}
+
+.cp-banner-title {
+  margin: 0 0 0.55rem;
+  font-size: clamp(1.15rem, 2.2vw + 0.85rem, 1.45rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.22;
+}
+
+.cp-banner-text {
+  margin: 0;
+  font-size: clamp(0.9rem, 0.5vw + 0.85rem, 1.02rem);
+  line-height: 1.55;
+  opacity: 0.92;
+  max-width: 44rem;
+}
+
+@keyframes cp-banner-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cp-banner-inner {
+    animation: none;
+  }
+}
+
+.cp-wrap {
+  width: 100%;
+  max-width: var(--marketing-content-max);
+  margin: 0 auto;
+}
+
+.cp-hero {
+  margin-bottom: 1.75rem;
+}
+
+.cp-title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.65rem, 3vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--palette-burgundy, var(--text));
+}
+
+.cp-lead {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.cp-req {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.cp-form {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg, 14px);
+  padding: 1.5rem 1.35rem;
+  box-shadow: var(--shadow-card, 0 4px 20px rgba(0, 0, 0, 0.06));
+}
+
+.cp-fieldset {
+  margin: 0 0 1.25rem;
+  padding: 0;
+  border: none;
+}
+
+.cp-legend {
+  padding: 0;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 0.65rem;
+}
+
+.cp-radio-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+}
+
+.cp-radio {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.cp-radio input {
+  accent-color: var(--accent);
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.cp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.1rem;
+}
+
+@media (max-width: 640px) {
+  .cp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.cp-field--full {
+  margin-top: 1rem;
+}
+
+.cp-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.cp-input,
+.cp-textarea {
+  font-family: inherit;
+  font-size: 0.9375rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: var(--radius, 10px);
+  border: 1px solid var(--border);
+  background: var(--bg-input);
+  color: var(--text);
+}
+
+.cp-input:focus-visible,
+.cp-textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.cp-textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.cp-input[aria-invalid="true"],
+.cp-textarea[aria-invalid="true"] {
+  border-color: var(--chip-critical-fg, #b91c1c);
+}
+
+.cp-error {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--chip-critical-fg, #b91c1c);
+}
+
+.cp-note {
+  margin: 1.25rem 0 0;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.cp-code {
+  font-family: var(--mono, monospace);
+  font-size: 0.85em;
+  color: var(--code-accent);
+}
+
+.cp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.cp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.35rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: inherit;
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.cp-btn-primary {
+  background: var(--accent);
+  color: var(--btn-on-accent);
+  border-color: var(--accent);
+}
+
+.cp-btn-primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.cp-btn-ghost {
+  background: transparent;
+  color: var(--palette-wine, var(--text));
+  border-color: var(--border);
+}
+
+.cp-btn-ghost:hover {
+  background: var(--surface-muted);
+}

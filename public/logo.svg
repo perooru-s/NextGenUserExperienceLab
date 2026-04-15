@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="labMarkGrad" x1="6" y1="4" x2="26" y2="28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ce4257" />
+      <stop offset="0.55" stop-color="#ff7f51" />
+      <stop offset="1" stop-color="#ff9b54" />
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="8" fill="url(#labMarkGrad)" />
+  <path
+    fill="#ffffff"
+    d="M17.8 5.2L9.2 16.4h4.9l-2.8 10.4L22.8 14h-5.1l2.1-8.8z"
+  />
+</svg>

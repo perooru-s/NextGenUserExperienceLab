@@ -1,0 +1,180 @@
+/* Footer for marketing pages (landing, contact). .lp-wrap here scopes width when LandingPage.css is not loaded. */
+.lp-footer .lp-wrap,
+.lp-footer-bar .lp-wrap {
+  width: 100%;
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
+  padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
+}
+
+.lp-footer {
+  background: var(--palette-burgundy);
+  color: rgba(255, 255, 255, 0.85);
+  padding-top: 2.25rem;
+}
+
+.lp-footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.05fr);
+  gap: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+@media (max-width: 900px) {
+  .lp-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .lp-footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 520px) {
+  .lp-footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lp-footer-heading {
+  margin: 0 0 0.65rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.lp-footer-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lp-footer-list li {
+  margin-bottom: 0.4rem;
+}
+
+.lp-footer-list a {
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.lp-footer-list a:hover {
+  text-decoration: underline;
+}
+
+.lp-footer-brand {
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .lp-footer-brand {
+    text-align: left;
+  }
+}
+
+.lp-footer-logo-text {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
+
+.lp-footer-tag {
+  margin: 0 0 0.85rem;
+  font-size: 0.78rem;
+  opacity: 0.75;
+}
+
+.lp-footer-social {
+  display: flex;
+  gap: 0.45rem;
+  justify-content: flex-end;
+}
+
+@media (max-width: 900px) {
+  .lp-footer-social {
+    justify-content: flex-start;
+  }
+}
+
+.lp-social {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
+}
+
+.lp-footer-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.75rem 0;
+}
+
+.lp-footer-bar-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+@media (min-width: 720px) {
+  .lp-footer-bar-inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    justify-items: stretch;
+    text-align: unset;
+  }
+
+  .lp-copyright {
+    justify-self: start;
+    text-align: left;
+  }
+
+  .lp-legal {
+    justify-self: end;
+  }
+}
+
+.lp-copyright {
+  margin: 0;
+  font-size: 0.78rem;
+  opacity: 0.65;
+}
+
+.lp-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  justify-content: center;
+}
+
+@media (min-width: 720px) {
+  .lp-legal {
+    justify-content: flex-end;
+  }
+}
+
+.lp-legal a {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.62);
+  text-decoration: none;
+}
+
+.lp-legal a:hover {
+  color: #fff;
+}
