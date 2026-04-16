@@ -1,0 +1,63 @@
+{
+  "name": "lightning-a11y-lab",
+  "displayName": "Lightning A11y Lab",
+  "description": "Accessibility review for Salesforce LWC and Aura markup — inline diagnostics, fix guidance, and export",
+  "version": "0.1.0",
+  "publisher": "nextgen-experience-lab",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Linters"],
+  "activationEvents": [
+    "onLanguage:html",
+    "workspaceContains:**/force-app/**/*.html",
+    "workspaceContains:**/lwc/**/*.html"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "a11yLab.reviewCurrentFile",
+        "title": "A11y Lab: Review Current File"
+      },
+      {
+        "command": "a11yLab.reviewAllComponents",
+        "title": "A11y Lab: Review All Components"
+      }
+    ],
+    "configuration": {
+      "title": "Lightning A11y Lab",
+      "properties": {
+        "a11yLab.wcagLevel": {
+          "type": "string",
+          "default": "AA",
+          "enum": ["A", "AA", "AAA"],
+          "description": "WCAG conformance target level"
+        },
+        "a11yLab.wcagVersion": {
+          "type": "string",
+          "default": "2.2",
+          "enum": ["2.1", "2.2"],
+          "description": "WCAG version"
+        },
+        "a11yLab.reviewOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically review files on save"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "package": "npx @vscode/vsce package --no-dependencies"
+  },
+  "dependencies": {
+    "@a11y-lab/core": "file:../core"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "typescript": "~5.6.2"
+  }
+}

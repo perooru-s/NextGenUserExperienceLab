@@ -1,0 +1,21 @@
+{
+  "name": "@a11y-lab/cli",
+  "version": "0.1.0",
+  "description": "Lightning A11y Lab CLI — accessibility review for Salesforce LWC and Aura markup",
+  "main": "dist/index.js",
+  "bin": {
+    "a11y-review": "./bin/run.js"
+  },
+  "files": ["dist", "bin"],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@a11y-lab/core": "file:../core"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "~5.6.2"
+  }
+}

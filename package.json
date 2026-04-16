@@ -3,9 +3,14 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "workspaces": ["packages/*"],
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build && node scripts/copy-404.mjs",
+    "build:core": "cd packages/core && npx tsc",
+    "build:cli": "cd packages/cli && npx tsc",
+    "build:vscode": "cd packages/vscode && npx tsc",
+    "build:packages": "npm run build:core && npm run build:cli && npm run build:vscode",
     "preview": "vite preview",
     "ppt:overview": "node scripts/generate-overview-deck.mjs"
   },
