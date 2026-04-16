@@ -91,7 +91,7 @@ export const SAMPLE_LWC_WITH_ISSUES = `<template>
  * no small control variants — static analysis reports no critical / major / minor findings (info-only reminders may still appear for AA).
  */
 export const SAMPLE_LWC_CLEAN = `<template>
-  <div class="slds-scope slds-p-around_medium">
+  <main class="slds-scope slds-p-around_medium">
     <lightning-card title="Clean sample: accessible Lightning markup" icon-name="standard:account">
       <div class="slds-grid slds-wrap slds-gutters_small">
         <div class="slds-col slds-size_1-of-1">
@@ -113,5 +113,5 @@ export const SAMPLE_LWC_CLEAN = `<template>
         </div>
       </div>
     </lightning-card>
-  </div>
+  </main>
 </template>`;

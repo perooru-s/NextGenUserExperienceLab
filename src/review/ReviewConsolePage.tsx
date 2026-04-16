@@ -92,12 +92,11 @@ export function ReviewConsolePage() {
   );
 
   useEffect(() => {
-    if (!findingsVisible) return;
     document.body.dataset.appView = "scroll";
     return () => {
       delete document.body.dataset.appView;
     };
-  }, [findingsVisible]);
+  }, []);
 
   const handleLiveUrlFetch = useCallback(
     async (andRun: boolean) => {
@@ -352,7 +351,9 @@ export function ReviewConsolePage() {
             <h2 id="panel-results-title" className="panel-results-title">Review Results</h2>
             {!isReviewing && hasFindings && (
               <p className="panel-results-subtitle">
-                {result.findings.length} finding{result.findings.length === 1 ? "" : "s"} detected across your markup
+                {reviewPasses
+                  ? `No issues found — ${result.findings.length} informational note${result.findings.length === 1 ? "" : "s"} for manual verification`
+                  : `${result.findings.length} finding${result.findings.length === 1 ? "" : "s"} detected across your markup`}
               </p>
             )}
           </div>

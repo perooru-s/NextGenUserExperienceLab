@@ -466,7 +466,6 @@ body[data-app-view="scroll"] .app-layout .review-chrome {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(0.65rem, 2vw, 1rem);
   align-items: stretch;
-  overflow: hidden;
 }
 
 /* Grid items default to min-width: auto (min-content); allow tracks to shrink so wide controls stay inside panels */
@@ -477,12 +476,8 @@ body[data-app-view="scroll"] .app-layout .review-chrome {
 @media (max-width: 960px) {
   .main-grid {
     grid-template-columns: 1fr;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: contain;
   }
 
-  .panel-input,
   .panel-results {
     min-height: min(45vh, 380px);
   }
@@ -495,11 +490,8 @@ body[data-app-view="scroll"] .app-layout .review-chrome {
   margin-left: auto;
   margin-right: auto;
   grid-template-columns: 1fr;
-  grid-template-rows: minmax(0, 1fr);
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: contain;
+  grid-template-rows: auto;
+  overflow: visible;
 }
 
 .main-grid.main-grid--review-stack {
@@ -519,10 +511,21 @@ body[data-app-view="scroll"] .app-layout .review-chrome {
   border-radius: var(--radius-lg);
   padding: 1.1rem 1.25rem;
   box-shadow: var(--shadow-card);
-  min-height: 0;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+}
+
+.panel.panel-input {
+  background: linear-gradient(
+    168deg,
+    color-mix(in srgb, var(--bg-elevated) 94%, var(--accent-dim) 6%),
+    var(--bg-elevated) 40%
+  );
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--border));
+  box-shadow:
+    var(--shadow-card),
+    0 0 0 1px color-mix(in srgb, var(--accent) 6%, transparent),
+    0 12px 32px color-mix(in srgb, var(--accent) 6%, transparent);
 }
 
 .panel.panel-results {
@@ -787,7 +790,6 @@ body[data-app-view="scroll"] .app-layout .review-chrome {
 
 .review-source-card--markup {
   flex: 1;
-  min-height: 0;
   display: flex;
   flex-direction: column;
   margin-bottom: 0;
@@ -2099,6 +2101,7 @@ body[data-app-view="scroll"] .app-layout .review-chrome {
 
 .footer-bar {
   flex-shrink: 0;
+  margin-top: 2rem;
   border-top: 1px solid var(--border);
   padding: 0.5rem 1.25rem max(0.65rem, env(safe-area-inset-bottom, 0px));
   padding-left: max(1.25rem, env(safe-area-inset-left, 0px) + 0.5rem);

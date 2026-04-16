@@ -62,7 +62,7 @@ export function ReviewSessionProvider({ children }: { children: ReactNode }) {
   }, [theme]);
 
   useEffect(() => {
-    delete document.body.dataset.appView;
+    document.body.dataset.appView = "scroll";
     return () => {
       delete document.body.dataset.appView;
     };

@@ -3,8 +3,10 @@
 # First-time setup:
 # 1. Repo → Settings → Secrets and variables → Actions → New repository secret:
 #    Name: SITE_PASSWORD   Value: (your team password)
-# 2. Repo → Settings → Pages → Build and deployment → Source: GitHub Actions.
-# 3. Push to main (or change the branch below).
+# 2. (Optional) Another secret for the live-URL fetch proxy:
+#    Name: PAGE_FETCH_PROXY   Value: https://<your-worker>.workers.dev
+# 3. Repo → Settings → Pages → Build and deployment → Source: GitHub Actions.
+# 4. Push to main (or change the branch below).
 #
 # URL shapes:
 # - Project site: https://<user>.github.io/<repo>/
@@ -51,6 +53,7 @@ jobs:
         env:
           VITE_BASE_PATH: ${{ steps.base.outputs.path }}
           VITE_SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
+          VITE_PAGE_FETCH_PROXY: ${{ secrets.PAGE_FETCH_PROXY }}
 
       - uses: actions/upload-pages-artifact@v3
         with:
