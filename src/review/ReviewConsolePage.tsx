@@ -40,6 +40,7 @@ export function ReviewConsolePage() {
     tone: "idle",
     text: "",
   });
+  const [markupError, setMarkupError] = useState("");
 
   const {
     source,
@@ -64,7 +65,6 @@ export function ReviewConsolePage() {
   const hasFindings = result.findings.length > 0;
 
   const urlBusy = isReviewing || isFetchingUrl;
-  const canFetchUrl = Boolean(normalizeReviewUrl(liveUrl)) && !urlBusy;
 
   const scrollToFindingsPanel = useCallback(() => {
     const el = document.getElementById("panel-findings");
@@ -100,7 +100,14 @@ export function ReviewConsolePage() {
 
   const handleLiveUrlFetch = useCallback(
     async (andRun: boolean) => {
-      if (!normalizeReviewUrl(liveUrl)) return;
+      if (!liveUrl.trim()) {
+        setUrlStatus({ tone: "err", text: "Please enter a page address before fetching." });
+        return;
+      }
+      if (!normalizeReviewUrl(liveUrl)) {
+        setUrlStatus({ tone: "err", text: "Invalid URL. Enter a valid address (e.g. https://example.com)." });
+        return;
+      }
       setIsFetchingUrl(true);
       setUrlStatus({ tone: "busy", text: "Fetching page HTML…" });
       try {
@@ -257,7 +264,7 @@ export function ReviewConsolePage() {
                 <button
                   type="button"
                   className="btn btn-secondary live-url-btn btn-with-icon"
-                  disabled={!canFetchUrl}
+                  disabled={urlBusy}
                   onClick={() => void handleLiveUrlFetch(false)}
                 >
                   <IconFetchIntoCode />
@@ -266,7 +273,7 @@ export function ReviewConsolePage() {
                 <button
                   type="button"
                   className="btn btn-primary live-url-btn btn-with-icon"
-                  disabled={!canFetchUrl}
+                  disabled={urlBusy}
                   onClick={() => void handleLiveUrlFetch(true)}
                 >
                   <IconFetchAndRun />
@@ -304,7 +311,14 @@ export function ReviewConsolePage() {
               <button
                 type="button"
                 className="btn btn-primary btn-run-review btn-with-icon"
-                onClick={() => void runReviewAndShowFindings()}
+                onClick={() => {
+                  if (!source.trim()) {
+                    setMarkupError("Please paste or type markup before running a review.");
+                    return;
+                  }
+                  setMarkupError("");
+                  void runReviewAndShowFindings();
+                }}
                 disabled={urlBusy}
                 aria-busy={isReviewing}
               >
@@ -322,6 +336,11 @@ export function ReviewConsolePage() {
               </button>
             </div>
           </header>
+          {markupError && (
+            <p className="live-url-status live-url-status--err markup-error" role="alert">
+              {markupError}
+            </p>
+          )}
           <label className="sr-only" htmlFor="code-input">
             Markup source editor
           </label>
@@ -332,7 +351,10 @@ export function ReviewConsolePage() {
               spellCheck={false}
               value={source}
               disabled={urlBusy}
-              onChange={(e) => setSource(e.target.value)}
+              onChange={(e) => {
+                setSource(e.target.value);
+                if (markupError) setMarkupError("");
+              }}
               placeholder="Paste &lt;template&gt;…&lt;/template&gt; or mixed component markup"
             />
           </div>

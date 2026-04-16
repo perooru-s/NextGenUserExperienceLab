@@ -982,6 +982,18 @@ body[data-app-view="scroll"] .app-layout .review-chrome {
 
 .live-url-status--err {
   color: var(--sev-critical-fg);
+  background: color-mix(in srgb, var(--sev-critical-fg) 8%, var(--bg-elevated));
+  border: 1px solid color-mix(in srgb, var(--sev-critical-fg) 30%, var(--border));
+  border-left: 3px solid var(--sev-critical-fg);
+  border-radius: var(--radius-sm, 6px);
+  padding: 0.55rem 0.85rem 0.55rem 0.75rem;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.markup-error {
+  margin-bottom: 0.75rem;
 }
 
 .code-input-wrap {
