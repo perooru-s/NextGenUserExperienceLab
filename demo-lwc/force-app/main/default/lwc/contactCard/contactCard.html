@@ -1,0 +1,18 @@
+<template>
+  <div class="slds-card">
+    <h1>Contact Details</h1>
+    <h4>Personal Information</h4>
+    <img src="/avatar.png">
+    <lightning-input value={firstName}></lightning-input>
+    <lightning-input value={lastName}></lightning-input>
+    <input type="email" placeholder="Enter email">
+    <div role="buton" onclick={handleSave}>
+      <span style="color: #777777; background-color: #ffffff ;">Save Contact</span>
+    </div>
+    <div style="color: red;">Required fields are marked in red</div>
+    <div class="modal" role="dialog" aria-modal="true">
+      <h2>Confirm Save </h2>
+      <p>Are you sure you want to save? </p>  
+    </div>
+  </div>
+</template> 

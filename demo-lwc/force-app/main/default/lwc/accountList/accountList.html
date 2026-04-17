@@ -1,0 +1,13 @@
+<template>
+  <lightning-card>
+    <h1>Accounts</h1>
+    <h3>Recent Accounts</h3>
+    <template for:each={accounts} for:item="acct">
+      <div key={acct.Id} class="slds-box">
+        <img src={acct.LogoUrl}>
+        <a href="javascript:void(0)">{acct.Name}</a>
+        <lightning-input value={acct.Phone}></lightning-input>
+      </div>
+    </template>
+  </lightning-card>
+</template>

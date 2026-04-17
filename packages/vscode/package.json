@@ -7,7 +7,9 @@
   "engines": {
     "vscode": "^1.85.0"
   },
-  "categories": ["Linters"],
+  "categories": [
+    "Linters"
+  ],
   "activationEvents": [
     "onLanguage:html",
     "workspaceContains:**/force-app/**/*.html",
@@ -31,13 +33,20 @@
         "a11yLab.wcagLevel": {
           "type": "string",
           "default": "AA",
-          "enum": ["A", "AA", "AAA"],
+          "enum": [
+            "A",
+            "AA",
+            "AAA"
+          ],
           "description": "WCAG conformance target level"
         },
         "a11yLab.wcagVersion": {
           "type": "string",
           "default": "2.2",
-          "enum": ["2.1", "2.2"],
+          "enum": [
+            "2.1",
+            "2.2"
+          ],
           "description": "WCAG version"
         },
         "a11yLab.reviewOnSave": {
@@ -58,6 +67,7 @@
   },
   "devDependencies": {
     "@types/vscode": "^1.85.0",
+    "esbuild": "^0.21.5",
     "typescript": "~5.6.2"
   }
 }
